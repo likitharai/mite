@@ -1,0 +1,3 @@
+Scenario 2: Printing a Right-Angled Triangle
+Write a C program that takes an integer N as input and prints a right-angled triangle
+of ‘*’with N rows. Example for N = 5:
