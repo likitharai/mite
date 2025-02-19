@@ -36,7 +36,8 @@ int main() {
     char str[100];
 
     printf("Enter a sentence: ");
-    scanf("%s",str);
+    fgets(str, sizeof(str), stdin);
+    str[strcspn(str, "\n")]=0;
 
     reverseword(str);
     printf("Reversed Sentence: %s\n",str);
