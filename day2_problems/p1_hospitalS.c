@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-void read_details(char patientName[], char* wardType, int* p_days) {
+void read_details(char* patientName, char* wardType, int* p_days) {
     printf("Enter Patient Name: ");
     scanf("%s", patientName);
 
@@ -39,7 +39,7 @@ float calculateBill(char wardType, int days) {
 float finalbill(float totalBill, int days) {
     float discount = 0;
     if (days > 7) {
-        discount = totalBill * 0.05; // 5% discount
+        discount = totalBill * 0.05; 
     }
     return totalBill - discount;
 }
@@ -48,27 +48,27 @@ int main() {
     char patientName[100];
     char wardType;
     int days;
-    float totalBill, discount, finalBillAmount;
+    float totalBill, discount, final_Bill;
 
-    // Get patient details
+    
     read_details(patientName, &wardType, &days);
 
-    // Calculate total bill
+    
     totalBill = calculateBill(wardType, days);
 
-    // Calculate final bill with discount if applicable
-    finalBillAmount = finalbill(totalBill, days);
+    
+    final_Bill = finalbill(totalBill, days);
 
     // Output the results
     printf("\nPatient Name: %s\n", patientName);
     printf("Total Bill Before Discount: ₹%.2f\n", totalBill);
-    if (finalBillAmount < totalBill) {
-        discount = totalBill - finalBillAmount;
+    if (final_Bill < totalBill) {
+        discount = totalBill - final_Bill;
         printf("Discount Applied: ₹%.2f\n", discount);
     } else {
         printf("Discount Applied: ₹0.00\n");
     }
-    printf("Final Bill Amount: ₹%.2f\n", finalBillAmount);
+    printf("Final Bill Amount: ₹%.2f\n", final_Bill);
 
     return 0;
 }
